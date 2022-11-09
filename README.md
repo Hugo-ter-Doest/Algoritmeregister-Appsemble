@@ -7,3 +7,7 @@ De app kun je [hier](https://algoritmeregister-conform-dats.dimpact.appsemble.ap
 Het gegevensmodel van de app is gebaseerd op de standaard [Dutch Algorithmic Transparency Standard.](https://standaard.algoritmeregister.org/)
 
 De API met algoritmes kan [hier]() worden benaderd.
+
+# License
+Copyright Dimpact, 2022
+Licensed under the EUPL.
