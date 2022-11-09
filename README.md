@@ -9,5 +9,6 @@ Het gegevensmodel van de app is gebaseerd op de standaard [Dutch Algorithmic Tra
 De API met algoritmes kan [hier]() worden benaderd.
 
 # License
-Copyright Dimpact, 2022
+Copyright [https://www.dimpact.nl](Dimpact), 2022
+
 Licensed under the EUPL.
