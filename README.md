@@ -1,6 +1,6 @@
 # Algoritmeregister
 
-Dit is de specificatie voor de Algoritmeregister app gemaakt met [Appsemble](https://appsemble.app/api/apps/461/resources/algoritme).
+Deze repository bevat de specificatie voor de Algoritmeregister app gemaakt met [Appsemble](https://appsemble.app/api/apps/461/resources/algoritme).
 
 De app kun je [hier](https://algoritmeregister-conform-dats.dimpact.appsemble.app/nl/voorbeeldpagina-a) bekijken.
 
