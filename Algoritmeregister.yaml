@@ -1,0 +1,367 @@
+name: Algoritmeregister conform DATS
+description: ""
+defaultPage: Example Page A
+
+resources:
+  algoritme:
+    roles: [$public]
+    schema:
+      type: object
+      additionalProperties: false 
+      required:
+        - name
+        - organization
+        - department
+        - description_short
+        - schema
+        - id
+        - url
+        - contact_email
+        - revision_date
+      properties:
+        name:
+          # What is the colloquial name used to identify this algorithm? Example: 'WMO prediction Rotterdam' or 'Crowd-monitoring Enschede'.
+          type: string
+        organization:
+          # What is the full name of the organization used to identify responsibility for use of the model, algorithm or AI? Example: 'City of Amsterdam' or 'Water Authority Limburg '.
+          type: string
+        department:
+          type: string
+        description_short:
+          type: string
+        type:
+          type: string
+        category:
+          type: string
+        website:
+          type: string
+          format: uri
+        status:
+          type: string
+        goal:
+          type: string
+        impact:
+          type: string
+        proportionality:
+          type: string
+        decision_making_process:
+          type: string
+        documentation:
+          type: string
+          format: uri
+        description:
+          type: string
+        application_url:
+          type: string
+          format: uri
+        publiccode:
+          type: string
+          format: uri
+        MPRD:
+          type: boolean
+        source_data:
+          type: string
+        methods_and_models:
+          type: string
+        monitoring:
+          type: string
+        human_intervention:
+          type: string
+        risks:
+          type: string
+        performance_standard:
+          type: string
+        competent_authority:
+          type: string
+        lawful_basis:
+          type: string
+        DPIA:
+          type: boolean
+        DPIA_description:
+          type: string
+        objection_procedure:
+          type: string
+        schema:
+          type: string
+        id:
+          type: integer
+        url:
+          type: string
+          format: uri
+        contact_email:
+          type: string
+        area:
+          type: string
+        lang:
+          type: string
+        revision_date:
+          type: string
+      
+pages:
+  - name: Example Page A
+    blocks:
+      - type: action-button
+        version: 0.20.18
+        parameters:
+          icon: arrow-right
+        actions:
+          onClick:
+            type: link
+            to: Example Page B
+
+  - name: Example Page B
+    blocks:
+      - type: action-button
+        version: 0.20.18
+        parameters:
+          icon: arrow-left
+        actions:
+          onClick:
+            type: link
+            to: Example Page A
+  - name: Algoritme details
+    blocks:
+      - type: form
+        version: 0.20.19
+        parameters:
+          fields:
+            - name: documentationFlag
+              type: boolean
+              label: Documentatie van de velden tonen
+            - name: nameDoc
+              type: static
+              content: "Wat is de naam die gebruikt wordt om dit algoritme aan te duiden? Voorbeeld: 'WMO voorspelling Rotterdam' of 'Crowd-monitoring Enschede'."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: name
+              tag: algemene informatie
+              type: string
+              label: Naam (verplicht)
+              requirements:
+                - required: true
+            - name: organizationDoc
+              content: "Wat is de volledige naam van de organisatie verantwoordelijk voor de inzet van het model, algoritme of AI? Voorbeeld: 'Gemeente Amsterdam' of 'Waterschap Limburg'."
+              type: static
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: organization
+              tag: algemene informatie
+              type: string
+              label: Organisatie (verplicht)
+              requirements:
+                - required: true
+            - name: departmentDoc
+              content: "Wat is de volledige naam van de afdeling of divisie verantwoordelijk voor de inzet van het model, algoritme of AI? Voorbeeld: 'Stadsdeel Segbroek' of 'Verkeer en Transport'."
+              type: static
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: department
+              tag: algemene informatie
+              type: string
+              label: Afdeling (verplicht)
+              requirements:
+                - required: true
+            - name: desciption_shortDoc
+              content: "Geef een korte omschrijving van maximaal 150 karakters waarin hoog over omschreven wordt wat het doel is van het model, algoritme of AI. Voorbeeld: 'Algoritme dat bij stoplichten voorrang van verkeersmodaliteiten berekent op basis van wetgeving en lokale voorschriften."
+              type: static
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: description_short
+              tag: algemene informatie
+              type: string
+              label: Korte omschrijving (verplicht)
+              requirements:
+                - required: true
+            - name: typeDoc
+              type: static
+              content: "Geef aan of het model, algoritme of AI descriptief, diagnostisch, voorspellend of prescriptief is. Deze informatio kan gebruikt worden als risico-indicator."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: type
+              tag: algemene informatie            
+              label: Type algoritme
+              type: enum
+              enum:
+              - value: Descriptief
+              - value: Diagnostisch
+              - value: Voorspellend 
+              - value: Prescriptief
+            - name: categoryDoc
+              type: static
+              content: "Geef zoekwoorden om zoeken te ondersteunen. Voorbeelden: 'verkeer', 'transport', 'sociale zekerheid', 'drukte-monitoring', 'gezichtsherkenning', 'camera-toezicht'."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: category
+              tag: algemene informatie
+              label: Categorie
+              type: string
+            - name: websiteDoc
+              type: static
+              content: "Wat is de URL van de pagina waarom meer informatie te vinden is over het model, algoritme of AI en de inzet daarvan? Dit is interessant voor gebruikers die meer willen weten over de praktische inzet en technische details."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: website
+              tag: algemene informatie
+              label: Website
+              type: string
+            - name: website
+              tag: algemene informatie
+              label: Website
+              type: string
+              format: url
+            - name: statusDoc
+              type: static
+              content: "Geef aan of het model, algoritme of AI in ontwikkeling is, in gebruik, of buiten gebruik."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: status
+              tag: algemene informatie
+              type: enum
+              label: Status
+              enum:
+                - value: In ontwikkeling
+                - value: In gebruik
+                - value: Buiten gebruik
+            - name: goalDoc
+              type: static
+              content: "Omschrijf de doelen waarvoor het model, algoritme of AI ontwikkeld is en hoe de inzet ervan bijdraagt aan het behalen van die doelen. Hieruit moet duidelijk blijken hoe en waarom deze specifieke technologie daar aan bijdraagt."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: goal
+              tag: inzet
+              type: string
+              label: Doel
+              multiline: true
+            - name: impactDoc
+              type: static
+              content: "Omschrijf hoe burgers te maken krijgen met de effecten van het model, algoritme of AI. Onder welke omstandigheden gebeurt dit en wat zijn de verwachte consequenties daarvan voor het individu en/of de samenleving?"
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: impact
+              tag: inzet
+              type: string
+              label: Impact
+              multiline: true
+            - name: proportionalityDoc
+              type: static
+              content: "Omschrijf waarom de inzet van het model, algoritme of AI redelijk gerechtvaardigd is. Hieruit moet blijken waarom de verwachte baten groter zijn dan de negatieve effecten en risico's."
+              show: { equals: [ {prop: documentationFlag}, true ] }
+            - name: proportionality
+              tag: inzet
+              type: string
+              label: Proportionaliteit
+              multiline: true
+            - name: decision_making_process
+              tag: inzet
+              type: string
+              label: Besluitvormingsproces
+              multiline: true
+            - name: documentation
+              tag: inzet
+              type: string
+              label: Documentatie
+              format: url
+            - name: description
+              tag: toepassing
+              type: string
+              label: Lange omschrijving
+              multiline: true
+            - name: application_url
+              tag: toepassing
+              type: string
+              format: url
+              label: URL van de applicatie
+            - name: publiccode
+              tag: toepassing
+              type: string
+              format: url
+              label: URL van publiccode.yml
+            - name: MPRD
+              tag: toepassing
+              label: Koppelingen met basisregistraties
+              type: boolean
+            - name: source_data
+              tag: toepassing
+              type: string
+              label: Brondata
+              multiline: true
+            - name: methods_and_models
+              tag: toepassing
+              type: string
+              label: Methoden en modellen
+            - name: monitoring
+              tag: toezicht
+              type: string
+              label: Monitoring
+              multiline: true
+            - name: human_intervention
+              tag: toezicht
+              type: string
+              label: Menselijke tussenkomst
+              multiline: true
+            - name: risks
+              tag: toezicht
+              type: string
+              label: Risico's
+            - name: performance_standard
+              tag: toezicht
+              type: string
+              label: Prestatienormen
+              multiline: true
+            - name: competent_authority
+              tag: juridisch
+              type: string
+              label: Bevoegde autoriteit
+            - name: lawful_basis
+              tag: juridisch
+              type: string
+              label: Wettelijke grondslag
+            - name: DPIA
+              tag: juridisch
+              type: boolean
+              label: Data protection impact assessment
+            - name: DPIA_description
+              tag: juridisch
+              type: string
+              label: Omschrijving van de DPIA
+              multiline: true
+            - name: objection_procedure
+              tag: juridisch
+              type: string
+              label: Bezwaarprocedure
+              multiline: true
+            - name: schema
+              tag: metadata
+              type: string
+              label: Schema (verplicht)
+              requirements:
+                - required: true
+            - name: id
+              tag: metadata
+              type: string
+              label: ID (verplicht)
+              requirements:
+                - required: true
+            - name: url
+              tag: metadata
+              label: URL (verplicht)
+              format: url
+              type: string
+              requirements:
+                - required: true
+            - name: contact_email
+              tag: metadata
+              type: string
+              format: email
+              label: E-mailadres van de contactpersoon (verplicht)
+              requirements:
+                - required: true
+            - name: area
+              tag: metadata
+              type: string
+              label: Geografisch gebied
+            - name: lang
+              tag: metadata
+              type: string
+              label: Taal
+            - name: revision_date
+              tag: metadata
+              type: date
+              label: Herzieningsdatum (verplicht)
+              requirements:
+                - required: true
+
+        actions:
+          onSubmit:
+            type: resource.create
+            resource: algoritme
