@@ -11,4 +11,4 @@ De API met algoritmes kan [hier]() worden benaderd.
 # License
 Copyright [Dimpact](https://www.dimpact.nl), 2022
 
-Licensed under the EUPL.
+Licensed under the [EUPL](./LICENSE.md).
